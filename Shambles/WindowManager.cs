@@ -1,4 +1,4 @@
-﻿using Peeky_Blinkers.Interface;
+﻿using Shambles.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Timers;
 using System.Threading.Tasks;
 using System.Diagnostics;
 
-namespace Peeky_Blinkers
+namespace Shambles
 {
     public class WindowManager: IDisposable
     {
@@ -21,7 +21,7 @@ namespace Peeky_Blinkers
         private List<WindowInfo> _currentWindowList = new List<WindowInfo>();
         private Dictionary<IntPtr, WindowInfo> _destWindowList = new Dictionary<IntPtr, WindowInfo>();
 
-        private readonly List<string> _banList = new List<string> {"Microsoft Text Input Application","HP Audio Control","Settings", "Peeky Blinkers", "NVIDIA GeForce Overlay", "Windows Input Experience", "Program Manager", "Peeky Blinkers Overlay"};
+        private readonly List<string> _banList = new List<string> {"Microsoft Text Input Application","HP Audio Control","Settings", "Shambles", "NVIDIA GeForce Overlay", "Windows Input Experience", "Program Manager", "Shambles Overlay"};
         private bool _forwardSequence = true;
         private static System.Timers.Timer _timer = new System.Timers.Timer(4);
         private bool _animationEnabled = false;

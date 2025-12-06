@@ -1,7 +1,7 @@
 ﻿using Moq;
 using Xunit;
-using Peeky_Blinkers;
-using Peeky_Blinkers.Interface;
+using Shambles;
+using Shambles.Interface;
 using System.Text;
 using System.Collections.Generic;
 using System;

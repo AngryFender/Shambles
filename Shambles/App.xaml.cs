@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Peeky_Blinkers
+namespace Shambles
 {
     /// <summary>
     /// Interaction logic for App.xaml

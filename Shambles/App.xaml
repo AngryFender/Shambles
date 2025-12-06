@@ -1,7 +1,7 @@
-﻿<Application x:Class="Peeky_Blinkers.App"
+﻿<Application x:Class="Shambles.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Peeky_Blinkers"
+             xmlns:local="clr-namespace:Shambles"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          

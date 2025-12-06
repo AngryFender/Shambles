@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Peeky_Blinkers
+namespace Shambles
 {
     /// <summary>
     /// Interaction logic for Overlay.xaml
@@ -79,6 +79,11 @@ namespace Peeky_Blinkers
                 HWnd = hWnd;
                 IsSelected = isSelected;
             }
+        }
+
+        private void BtnSelect_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

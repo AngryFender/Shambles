@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace Peeky_Blinkers.Interface
+namespace Shambles.Interface
 {
     public delegate bool EnumWindowsProc(IntPtr hWnd, IntPtr lParam); 
     public delegate void WinEventProc(IntPtr hWinEventHook

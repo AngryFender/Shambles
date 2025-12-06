@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Peeky_Blinkers.Properties {
+namespace Shambles.Properties {
     using System;
     
     

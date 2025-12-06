@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Peeky_Blinkers
+namespace Shambles
 {
     /// <summary>
     /// Interaction logic for ErrorDialog.xaml

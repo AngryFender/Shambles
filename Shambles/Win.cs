@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Text;
 using System.Runtime.InteropServices;
-using Peeky_Blinkers.Interface;
+using Shambles.Interface;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Collections.Generic;
 
-namespace Peeky_Blinkers
+namespace Shambles
 {
     internal class Win : IWindowApi
     {

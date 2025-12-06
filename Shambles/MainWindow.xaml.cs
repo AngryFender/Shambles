@@ -5,11 +5,11 @@ using Application = System.Windows.Application;
 using System;
 using System.ComponentModel;
 using ContextMenu = System.Windows.Forms.ContextMenu;
-using static Peeky_Blinkers.Overlay;
+using static Shambles.Overlay;
 using System.Threading;
 using System.Collections.ObjectModel;
 
-namespace Peeky_Blinkers
+namespace Shambles
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -29,7 +29,7 @@ namespace Peeky_Blinkers
         public MainWindow()
         {
             bool isNewApp = true;
-            _mutex = new Mutex(true, "Peeky Blinkers", out isNewApp);
+            _mutex = new Mutex(true, "Shambles", out isNewApp);
 
             if (!isNewApp)
             {
@@ -42,9 +42,9 @@ namespace Peeky_Blinkers
                 InitializeComponent();
                 this._notifyIcon = new NotifyIcon
                 {
-                    BalloonTipText = "Peeky-Blinkers is minimized to tray",
-                    BalloonTipTitle = "Peeky-Blinkers",
-                    Text = "Peeky-Blinkers",
+                    BalloonTipText = "Shambles is minimized to tray",
+                    BalloonTipTitle = "Shambles",
+                    Text = "Shambles",
                     Icon = Properties.Resources.swap,
                     Visible = true
                 };

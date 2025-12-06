@@ -1,8 +1,8 @@
 ﻿using Microsoft.Win32;
-using Peeky_Blinkers.Interface;
+using Shambles.Interface;
 using System;
 
-namespace Peeky_Blinkers
+namespace Shambles
 {
     internal class WindowRegistry : IWindowRegistry
     {
@@ -13,7 +13,7 @@ namespace Peeky_Blinkers
         public WindowRegistry() 
         {
             _softwareKey= Registry.CurrentUser.OpenSubKey("Software", true);
-            _appKey= _softwareKey.CreateSubKey("Peeky-Blinkers", true);
+            _appKey= _softwareKey.CreateSubKey("Shambles", true);
         }
 
         public void SetValue( string valueName, object value)

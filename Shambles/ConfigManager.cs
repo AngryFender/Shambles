@@ -1,12 +1,12 @@
 ﻿using Microsoft.Win32;
-using Peeky_Blinkers.Interface;
+using Shambles.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Peeky_Blinkers
+namespace Shambles
 {
     public class ConfigManager: IDisposable 
     {

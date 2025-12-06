@@ -55,9 +55,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Peeky-Blinkers\Peeky-Blinkers.csproj">
+    <ProjectReference Include="..\Shambles\Shambles.csproj">
       <Project>{629b366a-ac4e-4d1e-8fd2-4fb328535ba4}</Project>
-      <Name>Peeky-Blinkers</Name>
+      <Name>Shambles</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

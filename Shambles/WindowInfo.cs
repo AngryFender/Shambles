@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Peeky_Blinkers
+namespace Shambles
 {
     public class WindowInfo
     {

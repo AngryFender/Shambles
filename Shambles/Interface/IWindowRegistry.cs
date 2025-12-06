@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Peeky_Blinkers.Interface
+namespace Shambles.Interface
 {
     public interface IWindowRegistry : IDisposable
     {
