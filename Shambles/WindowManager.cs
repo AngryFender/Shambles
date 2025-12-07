@@ -47,6 +47,9 @@ namespace Shambles
         private const int VK_RSHIFT = 0xA1;
         private const int VK_ALT = 0x12;
         private const int VK_LALT = 164;
+        private const int VK_LCTRL = 0xA2;
+        private const int VK_RCTRL = 0xA3;
+
         private const uint KEYEVENTF_EXTENDEDKEY = 0x0001;
         private const uint KEYEVENTF_KEYUP = 0x0002;
         private const int SCREEN_SECTIONS = 8;
@@ -506,6 +509,9 @@ namespace Shambles
 
                 // Simulate Alt key release
                 _winApi.keybd_eventInvoke(VK_ALT, 0, KEYEVENTF_EXTENDEDKEY | KEYEVENTF_KEYUP, UIntPtr.Zero);
+                _winApi.keybd_eventInvoke(VK_LCTRL, 0, KEYEVENTF_EXTENDEDKEY, UIntPtr.Zero);
+                _winApi.keybd_eventInvoke(VK_LCTRL, 0, KEYEVENTF_EXTENDEDKEY | KEYEVENTF_KEYUP, UIntPtr.Zero);
+
             }
         }
 
