@@ -59,7 +59,7 @@ namespace Shambles
         private IntPtr _keyboardEventHook;
         private WinEventProc _winEventProc;
         private KeyboardProc _keyboardProc;
-        private WinRect _cursorWindow;
+        private IntPtr _cursorWindowHandle;
         private EnumWindowsProc _enumWinProc;
 
         private static bool _swapAlreadyRunning = false;
@@ -386,11 +386,13 @@ namespace Shambles
             }
 
             IntPtr cursorHWnd = _winApi.GetForegroundWindowInvoke();
-            _winApi.GetWindowRectInvoke(cursorHWnd, out _cursorWindow);
+            int cursorIndex = 0;
 
             _selectedWindowList.Clear();
             _currentWindowList.Clear();
             List<IntPtr> hwndList = new List<IntPtr>();
+
+            int c_index = 0; ;
             foreach (var window in _windowList)
             {
                 if (window.IsSelected)
@@ -398,6 +400,11 @@ namespace Shambles
                     hwndList.Add(window.HWnd);
                     _selectedWindowList.Add(window);
                     _currentWindowList.Add(new WindowInfo(window));
+                    if(window.HWnd == cursorHWnd)
+                    {
+                        cursorIndex = c_index;
+                    }
+                    c_index++;
                 }
             }
 
@@ -422,6 +429,12 @@ namespace Shambles
                     _selectedWindowList[index].HWnd = hwndList[0];
                     _destWindowList[_selectedWindowList[index].HWnd] = _selectedWindowList[index];
                 }
+
+                if(cursorIndex == index)
+                {
+                    _cursorWindowHandle = _selectedWindowList[index].HWnd;
+                }
+
             }
             _swapAlreadyRunning = true;
             if (_animationEnabled)
@@ -497,10 +510,7 @@ namespace Shambles
                 , finalWindow.Bottom - finalWindow.Top
                 , true);
 
-            if (_cursorWindow.left == finalWindow.Left &&
-               _cursorWindow.top == finalWindow.Top &&
-               _cursorWindow.right == finalWindow.Right &&
-               _cursorWindow.bottom == finalWindow.Bottom)
+            if (_cursorWindowHandle == finalWindow.HWnd)
             {
                 // Simulate Alt key press to bypass restrictions on SetForegroundWindow
                 _winApi.keybd_eventInvoke(VK_ALT, 0, KEYEVENTF_EXTENDEDKEY, UIntPtr.Zero);
