@@ -503,12 +503,13 @@ namespace Shambles
 
         private void MoveFinalWindowSetCursor(WindowInfo finalWindow)
         {
-            _winApi.MoveWindowInvoke(finalWindow.HWnd
+            _winApi.SetWindowPosInvoke(finalWindow.HWnd
+                , (IntPtr)0 
                 , finalWindow.Left
                 , finalWindow.Top
                 , finalWindow.Right - finalWindow.Left
                 , finalWindow.Bottom - finalWindow.Top
-                , true);
+                , SWP_SHOWWINDOW);
 
             if (_cursorWindowHandle == finalWindow.HWnd)
             {

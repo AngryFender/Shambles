@@ -5,6 +5,7 @@ using Shambles.Interface;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Collections.Generic;
+using System.Windows;
 
 namespace Shambles
 {
@@ -79,6 +80,11 @@ namespace Shambles
 
         [DllImport("user32.dll")]
         static extern bool IsIconic(IntPtr hWnd);
+
+
+        [DllImport("user32.dll")]
+        static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int x, int y, int cx, int cy, uint uFlags);
+
 
         private readonly List<Rectangle> _rectangles = new List<Rectangle>();
 
@@ -183,6 +189,10 @@ namespace Shambles
             return IsIconic(hWnd);
         }
 
+        public bool SetWindowPosInvoke(IntPtr hWnd, IntPtr hWndInsertAfter, int x, int y, int cx, int cy, uint uFlags)
+        {
+            return SetWindowPos( hWnd, hWndInsertAfter, x, y, cx, cy, uFlags);
+        }
         public Win()
         {
 
