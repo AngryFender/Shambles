@@ -14,9 +14,10 @@ namespace Shambles
             Title = old.Title;
             IsSelected = old.IsSelected;
             IsMinimized = old.IsMinimized;
+            IsMinimized = old.IsMinimized;
         }
 
-        public WindowInfo(IntPtr hWnd, int left, int top, int right, int bottom, string title, bool isSelected, bool isMinimized)
+        public WindowInfo(IntPtr hWnd, int left, int top, int right, int bottom, string title, bool isSelected, bool isMinimized, bool isMaximized)
         {
             HWnd = hWnd;
             Left = left;
@@ -26,6 +27,7 @@ namespace Shambles
             Title = title;
             IsSelected = isSelected;
             IsMinimized= isMinimized;
+            IsMaximized= isMaximized;
         }
 
         public IntPtr HWnd { get; set; }
@@ -36,6 +38,7 @@ namespace Shambles
         public string Title { get; set; }
         public bool IsSelected { get; set; }
         public bool IsMinimized { get; set; }
+        public bool IsMaximized { get; set; }
 
         public static bool operator ==(WindowInfo a, WindowInfo b)
         {
@@ -47,6 +50,7 @@ namespace Shambles
             if (a.Title != b.Title) {  return false; }
             if(a.IsSelected != b.IsSelected) { return false; }
             if(a.IsMinimized!= b.IsMinimized) { return false; }
+            if(a.IsMaximized!= b.IsMaximized) { return false; }
 
             return true;
         }
@@ -66,7 +70,8 @@ namespace Shambles
                    Bottom == info.Bottom &&
                    Title == info.Title &&
                    IsSelected == info.IsSelected &&
-                   IsMinimized== info.IsMinimized;
+                   IsMinimized== info.IsMinimized &&
+                   IsMaximized== info.IsMaximized;
         }
 
         public WindowInfo Copy(WindowInfo original)
@@ -78,7 +83,8 @@ namespace Shambles
                                             original.Bottom, 
                                             original.Title, 
                                             original.IsSelected,
-                                            original.IsMinimized);
+                                            original.IsMinimized,
+                                            original.IsMaximized);
             return copy;
         }
 

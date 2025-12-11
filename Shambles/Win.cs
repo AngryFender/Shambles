@@ -81,6 +81,18 @@ namespace Shambles
         [DllImport("user32.dll")]
         static extern bool IsIconic(IntPtr hWnd);
 
+        [DllImport("user32.dll")]
+        static extern bool IsZoomed(IntPtr hWnd);
+
+        [DllImport("user32.dll")]
+        static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+
+        [DllImport("user32.dll")]
+        static extern bool InvalidateRect(IntPtr hWnd, WinRect lpRect, bool bErase);
+
+        [DllImport("user32.dll")]
+        static extern bool UpdateWindow(IntPtr hWnd);
+
 
         [DllImport("user32.dll")]
         static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int x, int y, int cx, int cy, uint uFlags);
@@ -188,11 +200,32 @@ namespace Shambles
         {
             return IsIconic(hWnd);
         }
+        
+        public bool IsZoomedInvoke(IntPtr hWnd)
+        {
+            return IsZoomed(hWnd);
+        }
+
+        public bool ShowWindowInvoke(IntPtr hWnd, int nCmdShow)
+        {
+            return ShowWindow(hWnd, nCmdShow);
+        }
 
         public bool SetWindowPosInvoke(IntPtr hWnd, IntPtr hWndInsertAfter, int x, int y, int cx, int cy, uint uFlags)
         {
             return SetWindowPos( hWnd, hWndInsertAfter, x, y, cx, cy, uFlags);
         }
+
+        public bool InvalidateRectInvoke(IntPtr hWnd, WinRect lpRect, bool bErase)
+        {
+            return InvalidateRect(hWnd, lpRect, bErase);
+        }
+
+        public bool UpdateWindowInvoke(IntPtr hWnd)
+        {
+            return UpdateWindow(hWnd);
+        }
+
         public Win()
         {
 

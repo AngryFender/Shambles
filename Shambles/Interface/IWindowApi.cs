@@ -58,6 +58,10 @@ namespace Shambles.Interface
         uint GetDpiForWindowInvoke(IntPtr hWnd);
         List<Rectangle> GetAllScreensRectangles();
         bool IsIconicInvoke(IntPtr hWnd);
+        bool IsZoomedInvoke(IntPtr hWnd);
+        bool ShowWindowInvoke(IntPtr hWnd, int nCmdShow);
         bool SetWindowPosInvoke(IntPtr hWnd, IntPtr hWndInsertAfter, int x, int y, int cx, int cy, uint uFlags);
+        bool InvalidateRectInvoke(IntPtr hWnd, WinRect lpRect, bool bErase);
+        bool UpdateWindowInvoke(IntPtr hWnd);
     }
 }

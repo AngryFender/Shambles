@@ -54,6 +54,13 @@ namespace Shambles
         private const uint KEYEVENTF_KEYUP = 0x0002;
         private const int SCREEN_SECTIONS = 8;
 
+        private const uint SWP_SHOWWINDOW = 0x0040;
+        private const uint SWP_FRAMECHANGED = 0x0020;
+        private const uint SWP_NOZORDER = 0x0020;
+        private const uint SWP_NOACTIVATE = 0x0020;
+        private const uint SWP_NOCOPYBITS = 0x0100;
+        private const int SW_SHOWMAXIMIZED = 3;
+
         private IntPtr _winEventHook;
         private IntPtr _winEventHook2;
         private IntPtr _keyboardEventHook;
@@ -229,7 +236,10 @@ namespace Shambles
         {
             if (_winApi.GetWindowRectInvoke(hWnd, out WinRect rect) && _winApi.IsWindowVisibleInvoke(hWnd))
             {
-                WindowInfo info = new WindowInfo(hWnd, rect.left, rect.top, rect.right, rect.bottom, null, false, false);
+                if (rect.left < 0) rect.left = 0;
+                if (rect.top < 0) rect.top = 0;
+                bool isMaximized = _winApi.IsZoomedInvoke(hWnd);
+                WindowInfo info = new WindowInfo(hWnd,  rect.left, rect.top, rect.right, rect.bottom, null, false, false, isMaximized);
                 _rawWindowList.Add(info);
             }
             return true;
