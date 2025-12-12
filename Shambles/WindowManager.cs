@@ -396,6 +396,7 @@ namespace Shambles
             }
 
             IntPtr cursorHWnd = _winApi.GetForegroundWindowInvoke();
+            IntPtr 
             int cursorIndex = 0;
 
             _selectedWindowList.Clear();
@@ -523,6 +524,9 @@ namespace Shambles
 
             if (_cursorWindowHandle == finalWindow.HWnd)
             {
+
+                _winApi.keybd_eventInvoke(VK_LCTRL, 0, KEYEVENTF_EXTENDEDKEY, UIntPtr.Zero);
+                _winApi.keybd_eventInvoke(VK_LCTRL, 0, KEYEVENTF_EXTENDEDKEY | KEYEVENTF_KEYUP, UIntPtr.Zero);
                 // Simulate Alt key press to bypass restrictions on SetForegroundWindow
                 _winApi.keybd_eventInvoke(VK_ALT, 0, KEYEVENTF_EXTENDEDKEY, UIntPtr.Zero);
 
